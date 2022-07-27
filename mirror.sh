@@ -10,7 +10,7 @@ check_system() {
         release="debian 10"
     elif grep -i 'debian' /etc/os-release | grep -i '11' > /dev/null 2>&1 ; then
         release="debian 11"
-    elif grep -i 'ubuntu' /etc/os-release | grep -i '16.04' > /dev/null 2>&1 ; then
+    elif grep -i 'ubuntu' /etc/os-release | grep -Ei '16.04' > /dev/null 2>&1 ; then
         release="ubuntu 16.04"
     elif grep -i 'ubuntu' /etc/os-release | grep -i '18' > /dev/null 2>&1 ; then
         release="ubuntu 18"
