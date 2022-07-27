@@ -24,6 +24,7 @@ check_system() {
 }
 mirrorof_apt_or_yum() {
     heelo;
+    aa;
 }
 
 main() {
