@@ -214,9 +214,9 @@ deb https://debian.bjtu.edu.cn/debian/ buster-backports main non-free contrib
 deb-src https://debian.bjtu.edu.cn/debian/ buster-backports main non-free contrib" > /etc/apt/sources.list > /dev/null 2>&1
             apt -y update > /dev/null 2>&1
         fi
-
-
+    fi
 }
+
 
 main() {
     check_root;
