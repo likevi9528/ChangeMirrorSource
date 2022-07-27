@@ -22,9 +22,9 @@ check_system() {
         release="centos 8"
     fi
 }
-mirror_of_apt_or_yum() {
-    check_system;
-}
+# mirror_of_apt_or_yum() {
+#     check_system;
+# }
 
 main() {
     check_system;
