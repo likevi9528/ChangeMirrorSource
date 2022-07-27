@@ -221,8 +221,8 @@ deb-src https://debian.bjtu.edu.cn/debian/ buster-backports main non-free contri
 main() {
     check_root;
     check_system;
-    echo "当前系统版本："
-    echo $release
+    echo "当前系统版本：`$release`"
+    pre_info;
     if [[ ${selection_1} == 1 ]]; then
         inter_change_yum_or_apt;
     fi
