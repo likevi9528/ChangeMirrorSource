@@ -86,7 +86,7 @@ inter_info_pip() {
     done
 }
 inter_change_yum_or_apt() {
-    inter_info_yum_or_apt();
+    inter_info_yum_or_apt;
     if [ "${release}" == "centos 7" ]; then
         yum -y update > /dev/null 2>&1
         if [ ! -e '/root/yum.tar' ]; then
