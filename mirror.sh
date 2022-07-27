@@ -223,6 +223,8 @@ main() {
     check_system;
     echo "当前系统版本："
     echo $release
-    inter_change_yum_or_apt;
+    if [[ ${selection_1} == 1 ]]; then
+        inter_change_yum_or_apt;
+    fi
 }
 main
