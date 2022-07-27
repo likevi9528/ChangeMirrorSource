@@ -22,6 +22,10 @@ check_system() {
         release="centos 8"
     fi
 }
+mirrorof_apt_or_yum() {
+    heelo;
+}
+
 main() {
     check_system;
     echo $release
