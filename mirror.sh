@@ -23,6 +23,7 @@ check_system() {
     fi
 }
 mirrorof_apt_or_yum() {
+    check_system;
 
 }
 
