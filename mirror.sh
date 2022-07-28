@@ -92,7 +92,7 @@ inter_change_yum_or_apt() {
     if [ "${release}" == "centos 7" ]; then
         # yum -y update > /dev/null 2>&1
         if [ ! -e '/root/yum.tar' ]; then
-            sudo cd /root && sudo tar -cvf yum.tar /etc/yum.repos.d > /dev/null 2>&1
+            cd /root && tar -cvf yum.tar /etc/yum.repos.d > /dev/null 2>&1
         fi
 
         if [[ ${selection_2} == 1 ]]; then
