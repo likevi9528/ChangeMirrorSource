@@ -28,7 +28,8 @@ check_system() {
 }
 
 pre_info() {
-    echo -e "当前系统版本：`$release`"
+    echo -e " 当前系统版本："
+    echo  $release
     echo -e " 1. 更改yum/apt源 "
     echo -e " 2. 更改Docker源 "
     echo -e " 3. 更改pip源 "
