@@ -28,7 +28,7 @@ check_system() {
 }
 
 pre_info() {
-    echo -e " 当前系统版本：" $release
+    echo -e " 当前系统版本:" $release
     echo -e " 1. 更改yum/apt源 "
     echo -e " 2. 更改Docker源 "
     echo -e " 3. 更改pip源 "
@@ -90,7 +90,7 @@ inter_info_pip() {
 inter_change_yum_or_apt() {
     inter_info_yum_or_apt;
     if [ "${release}" == "centos 7" ]; then
-        yum -y update > /dev/null 2>&1
+        # yum -y update > /dev/null 2>&1
         if [ ! -e '/root/yum.tar' ]; then
             sudo cd /root && sudo tar -cvf yum.tar /etc/yum.repos.d > /dev/null 2>&1
         fi
@@ -110,12 +110,12 @@ inter_change_yum_or_apt() {
             sudo yum makecache > /dev/null 2>&1
         fi
         if [[ ${selection_2} == 3 ]]; then
-            curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo
- > /dev/null 2>&1
+            curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo > /dev/null 2>&1
             sudo yum makecache > /dev/null 2>&1
         fi
         if [[ ${selection_2} == 4 ]]; then
-            echo "# CentOS-Base.repo
+            echo 
+" # CentOS-Base.repo
 #
 # The mirror system uses the connecting IP address of the client and the
 # update status of each mirror to pick mirrors that are updated to and
@@ -157,7 +157,7 @@ baseurl=https://mirror.bjtu.edu.cn/centos/$releasever/centosplus/$basearch/
 #mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus
 gpgcheck=1
 enabled=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7" > /etc/yum.repos.d/CentOS-Base.repo > /dev/null 2>&1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 " > /etc/yum.repos.d/CentOS-Base.repo > /dev/null 2>&1
             sudo yum makecache > /dev/null 2>&1
         fi
     fi
