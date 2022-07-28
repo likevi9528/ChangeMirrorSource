@@ -91,8 +91,9 @@ inter_change_yum_or_apt() {
     inter_info_yum_or_apt;
     if [ "${release}" == "centos 7" ]; then
         # yum -y update > /dev/null 2>&1
+        yum -y install sudo > /dev/null 2>&1
         if [ ! -e '/root/yum.tar' ]; then
-            cd /root && tar -cvf yum.tar /etc/yum.repos.d > /dev/null 2>&1
+            sudo cd /root && sudo tar -cvf yum.tar /etc/yum.repos.d > /dev/null 2>&1
         fi
 
         if [[ ${selection_2} == 1 ]]; then
@@ -110,10 +111,12 @@ inter_change_yum_or_apt() {
             sudo yum makecache > /dev/null 2>&1
         fi
         if [[ ${selection_2} == 3 ]]; then
+            sudo rm -rf /etc/yum.repos.d/* > /dev/null 2>&1
             curl -o /etc/yum.repos.d/CentOS-Base.repo https://mirrors.aliyun.com/repo/Centos-7.repo > /dev/null 2>&1
             sudo yum makecache > /dev/null 2>&1
         fi
         if [[ ${selection_2} == 4 ]]; then
+            rm -rf /etc/yum.repos.d/* > /dev/null 2>&1
             echo 
 " # CentOS-Base.repo
 #
