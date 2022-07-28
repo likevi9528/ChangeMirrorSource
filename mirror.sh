@@ -28,8 +28,7 @@ check_system() {
 }
 
 pre_info() {
-    echo -e " 当前系统版本："
-    echo  $release
+    echo -e " 当前系统版本：" ; echo  $release
     echo -e " 1. 更改yum/apt源 "
     echo -e " 2. 更改Docker源 "
     echo -e " 3. 更改pip源 "
@@ -87,6 +86,7 @@ inter_info_pip() {
         fi
     done
 }
+
 inter_change_yum_or_apt() {
     inter_info_yum_or_apt;
     if [ "${release}" == "centos 7" ]; then
@@ -219,6 +219,9 @@ deb-src https://debian.bjtu.edu.cn/debian/ buster-backports main non-free contri
     fi
 }
 
+inter_change_docker() {
+    inter_info_docker;
+}
 
 main() {
     check_root;
@@ -226,6 +229,9 @@ main() {
     pre_info;
     if [[ ${selection_1} == 1 ]]; then
         inter_change_yum_or_apt;
+        echo -e " 修改完成 "
+    elif [[ ${selection_1} == 2 ]]; then
+        inter_change_docker;
     fi
 }
 main
