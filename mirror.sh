@@ -5,6 +5,8 @@
 # update: 2022/07/22
 # description: 一键配置各种镜像加速源
 
+RED='\033[0;31m'
+PLAIN='\033[0m'
 check_root(){
 	[[ $EUID -ne 0 ]] && echo -e "${RED}请使用 root 用户运行本脚本！${PLAIN}" && exit 1
 }
