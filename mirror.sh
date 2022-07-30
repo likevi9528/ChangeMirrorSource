@@ -49,6 +49,7 @@ inter_info_yum_or_apt() {
     echo -e " 2. 中科大源 "
     echo -e " 3. 阿里源 "
     echo -e " 4. 北交大源 "
+    echo -e " 5. 恢复官方源 "
     while :; do echo
         read -p " 请输入数字选择模式：" selection_2
         if [[ ! $selection_2 =~ ^[1-4]$ ]]; then
@@ -150,16 +151,23 @@ inter_change_yum_or_apt() {
 inter_change_docker() {
     inter_info_docker;
 }
+inter_change_pip() {
+    inter_info_pip;
+}
 
 main() {
     check_root;
     check_system;
     pre_info;
+    [[ ${selection_1} == 4 ]] && exit 1
     if [[ ${selection_1} == 1 ]]; then
         inter_change_yum_or_apt;
         echo -e " 修改完成 "
     elif [[ ${selection_1} == 2 ]]; then
         inter_change_docker;
+    fi
+    elif [[ ${selection_1} == 3 ]]; then
+        inter_change_pip;
     fi
 }
 main
