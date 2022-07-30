@@ -119,50 +119,7 @@ inter_change_yum_or_apt() {
         fi
         if [[ ${selection_2} == 4 ]]; then
             rm -rf /etc/yum.repos.d/* > /dev/null 2>&1
-            echo 
-" # CentOS-Base.repo
-#
-# The mirror system uses the connecting IP address of the client and the
-# update status of each mirror to pick mirrors that are updated to and
-# geographically close to the client.  You should use this for CentOS updates
-# unless you are manually picking other mirrors.
-#
-# If the mirrorlist= does not work for you, as a fall back you can try the
-# remarked out baseurl= line instead.
-#
-#
-
-[base]
-name=CentOS-$releasever - Base
-baseurl=https://mirror.bjtu.edu.cn/centos/$releasever/os/$basearch/
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=os
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-
-#released updates
-[updates]
-name=CentOS-$releasever - Updates
-baseurl=https://mirror.bjtu.edu.cn/centos/$releasever/updates/$basearch/
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=updates
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-
-#additional packages that may be useful
-[extras]
-name=CentOS-$releasever - Extras
-baseurl=https://mirror.bjtu.edu.cn/centos/$releasever/extras/$basearch/
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=extras
-gpgcheck=1
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
-
-#additional packages that extend functionality of existing packages
-[centosplus]
-name=CentOS-$releasever - Plus
-baseurl=https://mirror.bjtu.edu.cn/centos/$releasever/centosplus/$basearch/
-#mirrorlist=http://mirrorlist.centos.org/?release=$releasever&arch=$basearch&repo=centosplus
-gpgcheck=1
-enabled=0
-gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 " > /etc/yum.repos.d/CentOS-Base.repo > /dev/null 2>&1
+             > /etc/yum.repos.d/CentOS-Base.repo > /dev/null 2>&1
             sudo yum makecache > /dev/null 2>&1
         fi
     fi
@@ -172,53 +129,19 @@ gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7 " > /etc/yum.repos.d/CentOS-
             sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
         fi
         if [[ ${selection_2} == 1 ]]; then
-            echo "# 默认注释了源码镜像以提高 apt update 速度，如有需要可自行取消注释
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster main contrib non-free
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-updates main contrib non-free
-
-deb https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian/ buster-backports main contrib non-free
-
-deb https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free
-# deb-src https://mirrors.tuna.tsinghua.edu.cn/debian-security buster/updates main contrib non-free" > /etc/apt/sources.list > /dev/null 2>&1
+             > /etc/apt/sources.list > /dev/null 2>&1
             apt -y update > /dev/null 2>&1
         fi
         if [[ ${selection_2} == 2 ]]; then
-            echo "deb https://mirrors.ustc.edu.cn/debian/ buster main contrib non-free
-deb-src https://mirrors.ustc.edu.cn/debian/ buster main contrib non-free
-
-deb https://mirrors.ustc.edu.cn/debian/ buster-updates main contrib non-free
-deb-src https://mirrors.ustc.edu.cn/debian/ buster-updates main contrib non-free
-
-deb https://mirrors.ustc.edu.cn/debian/ buster-backports main contrib non-free
-deb-src https://mirrors.ustc.edu.cn/debian/ buster-backports main contrib non-free
-
-deb https://mirrors.ustc.edu.cn/debian-security/ buster/updates main contrib non-free
-deb-src https://mirrors.ustc.edu.cn/debian-security/ buster/updates main contrib non-free" > /etc/apt/sources.list > /dev/null 2>&1
+             > /etc/apt/sources.list > /dev/null 2>&1
             apt -y update > /dev/null 2>&1
         fi
         if [[ ${selection_2} == 3 ]]; then
-            echo "deb http://mirrors.aliyun.com/debian/ buster main non-free contrib
-deb-src http://mirrors.aliyun.com/debian/ buster main non-free contrib
-deb http://mirrors.aliyun.com/debian-security buster/updates main
-deb-src http://mirrors.aliyun.com/debian-security buster/updates main
-deb http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib
-deb-src http://mirrors.aliyun.com/debian/ buster-updates main non-free contrib
-deb http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib
-deb-src http://mirrors.aliyun.com/debian/ buster-backports main non-free contrib" > /etc/apt/sources.list > /dev/null 2>&1
+             > /etc/apt/sources.list > /dev/null 2>&1
             apt -y update > /dev/null 2>&1
         fi
         if [[ ${selection_2} == 4 ]]; then
-            echo "deb https://debian.bjtu.edu.cn/debian/ buster main non-free contrib
-deb-src https://debian.bjtu.edu.cn/debian/ buster main non-free contrib
-deb https://debian.bjtu.edu.cn/debian-security buster/updates main
-deb-src https://debian.bjtu.edu.cn/debian-security buster/updates main
-deb https://debian.bjtu.edu.cn/debian/ buster-updates main non-free contrib
-deb-src https://debian.bjtu.edu.cn/debian/ buster-updates main non-free contrib
-deb https://debian.bjtu.edu.cn/debian/ buster-backports main non-free contrib
-deb-src https://debian.bjtu.edu.cn/debian/ buster-backports main non-free contrib" > /etc/apt/sources.list > /dev/null 2>&1
+             > /etc/apt/sources.list > /dev/null 2>&1
             apt -y update > /dev/null 2>&1
         fi
     fi
